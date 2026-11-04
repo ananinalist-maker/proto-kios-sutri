@@ -182,7 +182,7 @@ body.home .site-header.over .logo { color: var(--ivory); }
   .hero-slides img:nth-child(1), .hero-slides img:nth-child(2), .hero-slides img:nth-child(3) { object-position: 50% 0%; }
   .hero-slides img + img { border-left: 1px solid rgba(203, 168, 145, .35); }
   .hero-dots { display: none; }
-  .hero-shade { background: linear-gradient(180deg, rgba(10,9,8,.55) 0%, rgba(10,9,8,0) 20%, rgba(10,9,8,0) 46%, rgba(10,9,8,.8) 80%, rgba(10,9,8,.92) 100%); }
+  .hero-shade { background: linear-gradient(90deg, rgba(10,9,8,.5) 0%, rgba(10,9,8,0) 60%), linear-gradient(180deg, rgba(10,9,8,.55) 0%, rgba(10,9,8,0) 20%, rgba(10,9,8,0) 40%, rgba(10,9,8,.8) 78%, rgba(10,9,8,.92) 100%); }
 }
 
 /* ---------- sections ---------- */
