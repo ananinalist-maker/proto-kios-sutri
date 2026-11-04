@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>I nostri negozi a Sutri · KIOS e KIOS Kids</title>
+<meta name="description" content="KIOS e KIOS Kids in Viale Guglielmo Marconi 62 e 64 a Sutri (VT): indirizzi, contatti e ritiro gratuito degli ordini online.">
+<meta name="theme-color" content="#121110">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/kios.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+<body>
+<main>
+  <div class="wrap page-head">
+    <div class="crumbs"><a href="index.html">Home</a><span>/</span><span>I nostri negozi</span></div>
+    <h1>I nostri negozi <em class="g">a Sutri</em></h1>
+    <p class="lead">Due porte una accanto all'altra in Viale Guglielmo Marconi: al 64 la donna, al 62 i bambini. In tutti e due ritiri gratis gli ordini online.</p>
+  </div>
+  <section class="section tight">
+    <div class="wrap shops">
+      <article class="shop"><div class="shop-img"><img src="img/shop-donna.webp" alt="Interno del negozio KIOS"><span class="shop-num">64</span></div>
+        <div class="shop-body"><h3>KIOS</h3><p>Abbigliamento e accessori donna, dalla 38 alla 52</p>
+          <div class="shop-lines">
+            <div><i data-i="pin"></i><span>Viale Guglielmo Marconi 64, 01015 Sutri (VT)</span></div>
+            <div><i data-i="phone"></i><span>WhatsApp 320 554 2737 · Tel. 328 565 3332</span></div>
+            <div><i data-i="clock"></i><span>Orari di apertura: <span class="todo">da inserire</span></span></div>
+          </div>
+          <div class="shop-actions"><a class="btn btn-line" href="https://www.google.com/maps/dir/?api=1&amp;destination=Viale+Guglielmo+Marconi+64+Sutri" target="_blank" rel="noopener">Indicazioni</a><a class="btn btn-wa" data-wa="Ciao! Ho una domanda per KIOS."><i data-i="wa"></i>WhatsApp</a></div></div></article>
+      <article class="shop"><div class="shop-img"><img src="img/shop-kids.webp" alt="Interno del negozio KIOS Kids" style="object-position:50% 45%"><span class="shop-num">62</span></div>
+        <div class="shop-body"><h3>KIOS Kids</h3><p>Abbigliamento da 0 a 14 anni, lista nascita</p>
+          <div class="shop-lines">
+            <div><i data-i="pin"></i><span>Viale Guglielmo Marconi 62, 01015 Sutri (VT)</span></div>
+            <div><i data-i="phone"></i><span>WhatsApp 320 554 2737</span></div>
+            <div><i data-i="clock"></i><span>Orari di apertura: <span class="todo">da inserire</span></span></div>
+          </div>
+          <div class="shop-actions"><a class="btn btn-line" href="https://www.google.com/maps/dir/?api=1&amp;destination=Viale+Guglielmo+Marconi+62+Sutri" target="_blank" rel="noopener">Indicazioni</a><a class="btn btn-wa" data-wa="Ciao! Ho una domanda per KIOS Kids."><i data-i="wa"></i>WhatsApp</a></div></div></article>
+    </div>
+  </section>
+  <section class="section tight">
+    <div class="wrap"><div id="map" role="img" aria-label="Mappa: KIOS e KIOS Kids in Viale Guglielmo Marconi, Sutri"></div></div>
+  </section>
+  <section class="section tight">
+    <div class="wrap">
+      <div class="sec-head"><div><p class="eyebrow">Ordina online, ritira in negozio</p><h2>Il ritiro <em class="g">è gratis</em></h2></div></div>
+      <div class="howto">
+        <div><span><b>Ordini sul sito</b>Scegli «Ritiro in negozio» alla cassa e paghi online.</span></div>
+        <div><span><b>Ti scriviamo su WhatsApp</b>Quando il pacco è pronto al 64 o al 62.</span></div>
+        <div><span><b>Passi quando vuoi</b>Lo provi in negozio e, se serve, lo cambi subito.</span></div>
+      </div>
+    </div>
+  </section>
+  <section class="section tight" id="contatti" style="scroll-margin-top:70px">
+    <div class="wrap">
+      <div class="finder">
+        <p class="eyebrow">Contatti</p>
+        <h2 style="font-size:34px">Scrivici, rispondiamo noi</h2>
+        <p class="lead">Per la taglia, la disponibilità o un ordine: WhatsApp 320 554 2737. Su Instagram @kios_sanna_ e @kios_kids_.</p>
+        <a class="btn btn-wa" style="margin-top:18px" data-wa="Ciao! Ho una domanda."><i data-i="wa"></i>Scrivici su WhatsApp</a>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="assets/data.js"></script>
+<script src="assets/kios.js"></script>
+<script>KIOS.chrome({}); KIOS.pages.negozi();</script>
+</body>
+</html>

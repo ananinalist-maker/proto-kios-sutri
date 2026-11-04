@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Cassa · KIOS Sutri</title>
+<meta name="description" content="Completa l'ordine KIOS senza registrazione.">
+<meta name="theme-color" content="#121110">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/kios.css">
+</head>
+<body>
+<main class="wrap">
+  <div id="co-form">
+    <div class="steps"><span>Carrello</span><i></i><b>Dati e consegna</b><i></i><span>Pagamento</span></div>
+    <details class="co-sum"><summary><span>Mostra il riepilogo</span><b id="co-total"></b></summary><div class="in" id="co-items"></div></details>
+    <div class="co-layout">
+      <form onsubmit="return false" novalidate>
+        <fieldset class="fs"><legend>Contatti</legend><p class="sub">Acquisti senza registrazione: bastano email e telefono.</p>
+          <label class="field"><span>Email</span><input type="email" autocomplete="off" placeholder="nome@email.it"></label>
+          <label class="field"><span>Telefono, per il messaggio WhatsApp sul ritiro</span><input type="tel" autocomplete="off" placeholder="+39"></label>
+        </fieldset>
+        <fieldset class="fs"><legend>Consegna</legend><p class="sub">Costi di consegna indicativi: li decide il negozio.</p>
+          <label class="opt"><input type="radio" name="ship" value="ritiro-64"><span class="t"><b>Ritiro in negozio · KIOS</b>Viale G. Marconi 64, Sutri. Ti scriviamo quando è pronto.</span><span class="p">Gratis</span></label>
+          <label class="opt"><input type="radio" name="ship" value="ritiro-62"><span class="t"><b>Ritiro in negozio · KIOS Kids</b>Viale G. Marconi 62, Sutri.</span><span class="p">Gratis</span></label>
+          <label class="opt"><input type="radio" name="ship" value="locale"><span class="t"><b>Consegna a Sutri e dintorni</b>Nepi, Capranica, Ronciglione, Bassano Romano: la porta il negozio.</span><span class="p">3,90 €</span></label>
+          <label class="opt"><input type="radio" name="ship" value="corriere"><span class="t"><b>Corriere in tutta Italia</b>Gratis da 79 €.</span><span class="p">6,90 €</span></label>
+          <div id="addr" hidden>
+            <label class="field"><span>Nome e cognome</span><input type="text" autocomplete="off"></label>
+            <label class="field"><span>Indirizzo</span><input type="text" autocomplete="off"></label>
+            <div class="two"><label class="field"><span>CAP</span><input type="text" autocomplete="off"></label><label class="field"><span>Città</span><input type="text" autocomplete="off"></label></div>
+          </div>
+        </fieldset>
+        <fieldset class="fs"><legend>Pagamento</legend><p class="sub">Prototipo: i campi non inviano dati e nessun pagamento parte.</p>
+          <label class="opt"><input type="radio" name="pay" value="carta" checked><span class="t"><b>Carta di credito o debito</b><span class="badges"><span>VISA</span><span>Mastercard</span><span>Maestro</span></span></span></label>
+          <div class="card-fields" id="card-fields">
+            <label class="field"><span>Numero della carta</span><input type="text" inputmode="numeric" autocomplete="off" placeholder="1234 1234 1234 1234"></label>
+            <div class="two"><label class="field"><span>Scadenza</span><input type="text" autocomplete="off" placeholder="MM/AA"></label><label class="field"><span>CVC</span><input type="text" autocomplete="off" placeholder="123"></label></div>
+          </div>
+          <label class="opt"><input type="radio" name="pay" value="applepay"><span class="t"><b>Apple Pay</b></span></label>
+          <label class="opt"><input type="radio" name="pay" value="googlepay"><span class="t"><b>Google Pay</b></span></label>
+          <label class="opt"><input type="radio" name="pay" value="paypal"><span class="t"><b>PayPal</b><span id="rate-note"></span></span></label>
+        </fieldset>
+        <label class="check"><input type="checkbox" checked><span>Ho letto le <a href="info.html#condizioni">condizioni di vendita</a> e l'<a href="info.html#privacy">informativa privacy</a>. So che ho 14 giorni per il recesso.</span></label>
+        <button class="btn btn-ink btn-block" type="button" id="pay-btn">Paga</button>
+        <p class="small" style="text-align:center;margin:12px 0 0">Pagamento protetto · reso entro 14 giorni · cambio in negozio gratuito</p>
+      </form>
+      <div class="ways" style="margin-top:28px"><div><i data-i="store"></i>Ritiro gratuito in uno dei due negozi di Sutri</div><div><i data-i="card"></i>Con PayPal anche in 3 rate senza interessi</div><div><i data-i="ret"></i><span>Hai cambiato idea? <a href="info.html#recesso" style="border-bottom:1px solid">Recedi dal contratto</a></span></div></div>
+    </div>
+  </div>
+  <div id="co-done" class="done" hidden>
+    <div class="ok"><i data-i="check"></i></div>
+    <p class="eyebrow" style="justify-content:center">Ordine ricevuto</p>
+    <h1>Grazie <em class="g">di cuore</em></h1>
+    <p>Ti abbiamo mandato la conferma via email. <span id="done-pickup"></span></p>
+    <div class="order-box" id="done-box"></div>
+    <a class="btn btn-ink" href="index.html">Torna al negozio</a>
+    <p class="small" style="margin-top:16px">Questa è la conferma di prova del prototipo: nessun ordine è stato inviato.</p>
+  </div>
+  <div class="section tight"></div>
+  <div class="modal" id="proto-modal" role="dialog" aria-modal="true" aria-labelledby="pm-title"><div class="modal-box">
+    <div class="ornament" style="margin-bottom:14px">◆</div>
+    <h3 id="pm-title">È un prototipo</h3>
+    <p>Qui il negozio vero passa al pagamento sicuro: carta, Apple Pay, Google Pay o PayPal. Nel prototipo non si paga e non parte nessun ordine.</p>
+    <button class="btn btn-ink btn-block" id="modal-ok">Vedi la conferma d'ordine</button>
+    <button class="link" id="modal-no" style="margin-top:14px">Torna indietro</button>
+  </div></div>
+</main>
+<script src="assets/data.js"></script>
+<script src="assets/kios.js"></script>
+<script>KIOS.chrome({ checkout: true }); KIOS.pages.checkout();</script>
+</body>
+</html>

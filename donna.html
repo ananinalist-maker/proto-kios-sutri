@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Donna, dalla 38 alla 52 · KIOS Sutri</title>
+<meta name="description" content="Abbigliamento e accessori donna dalla 38 alla 52: filtra per taglia, ritiro gratis in negozio a Sutri.">
+<meta name="theme-color" content="#121110">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/kios.css">
+</head>
+<body>
+<main>
+  <div class="wrap page-head">
+    <div class="crumbs"><a href="index.html">Home</a><span>/</span><span>Donna</span></div>
+    <h1 id="title">Donna</h1>
+    <p class="lead">Abbigliamento e accessori, scelti in negozio uno per uno. Per ogni capo vedi subito quali taglie ci sono.</p>
+  </div>
+  <div class="wrap"><div class="chips" id="cats"></div></div>
+  <div class="filterbar">
+    <div class="wrap">
+      <div class="row"><span class="label">LA TUA TAGLIA</span><button class="reset" id="reset" hidden>Azzera filtri</button></div>
+      <div class="sizes-row" id="sizes"></div>
+      <div class="row" style="margin:10px 0 0"><span class="count" id="count"></span>
+        <select class="select" id="sort" aria-label="Ordina"><option value="novita">Novità</option><option value="asc">Prezzo crescente</option><option value="desc">Prezzo decrescente</option></select></div>
+    </div>
+  </div>
+  <div class="wrap"><div class="grid" id="grid"></div></div>
+  <div class="section tight"></div>
+</main>
+<script src="assets/data.js"></script>
+<script src="assets/kios.js"></script>
+<script>KIOS.chrome({ world: "donna" }); KIOS.pages.donna();</script>
+</body>
+</html>

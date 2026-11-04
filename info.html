@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Spedizioni, resi e taglie · KIOS Sutri</title>
+<meta name="description" content="Spedizioni, ritiro in negozio, resi, pagamenti, guida alle taglie e recesso di KIOS Sutri.">
+<meta name="theme-color" content="#121110">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/kios.css">
+</head>
+<body>
+<main>
+  <div class="wrap page-head">
+    <div class="crumbs"><a href="index.html">Home</a><span>/</span><span>Aiuto</span></div>
+    <h1>Come <em class="g">funziona</em></h1>
+    <div class="note-proto">Condizioni di esempio per il prototipo: soglie, costi e tempi li decide il negozio.</div>
+    <div class="info-nav"><a class="chip" href="#spedizioni">Spedizioni</a><a class="chip" href="#resi">Resi e cambi</a><a class="chip" href="#pagamenti">Pagamenti</a><a class="chip" href="#taglie">Taglie</a><a class="chip" href="#gift-card">Gift card</a><a class="chip" href="#recesso">Recesso</a></div>
+  </div>
+  <div class="wrap">
+    <section class="info-sec" id="spedizioni"><h2>Spedizioni e ritiro</h2>
+      <ul><li><b>Ritiro in negozio:</b> gratis, al 64 (donna) o al 62 (Kids). Ti scriviamo quando è pronto.</li>
+      <li><b>Consegna a Sutri e dintorni:</b> la porta il negozio, 3,90 €.</li>
+      <li><b>Corriere in tutta Italia:</b> 6,90 €, gratis da 79 €.</li></ul></section>
+    <section class="info-sec" id="resi"><h2>Resi e cambi</h2>
+      <p>Hai 14 giorni dal ricevimento per il reso. Il cambio di taglia in negozio è gratuito. I capi devono avere ancora il cartellino.</p></section>
+    <section class="info-sec" id="pagamenti"><h2>Pagamenti</h2>
+      <p>Carte VISA, Mastercard e Maestro, Apple Pay, Google Pay e PayPal, anche in 3 rate senza interessi. Il pagamento avviene su pagine protette: il negozio non vede i dati della carta.</p></section>
+    <section class="info-sec" id="taglie"><h2>Guida alle taglie</h2>
+      <table class="sizes"><tr><th>Taglia</th><th>Seno</th><th>Vita</th><th>Fianchi</th></tr>
+      <tr><td>38</td><td>84</td><td>66</td><td>90</td></tr><tr><td>40</td><td>88</td><td>70</td><td>94</td></tr><tr><td>42</td><td>92</td><td>74</td><td>98</td></tr><tr><td>44</td><td>96</td><td>78</td><td>102</td></tr>
+      <tr><td>46</td><td>100</td><td>82</td><td>106</td></tr><tr><td>48</td><td>104</td><td>86</td><td>110</td></tr><tr><td>50</td><td>108</td><td>90</td><td>114</td></tr><tr><td>52</td><td>112</td><td>94</td><td>118</td></tr></table>
+      <p class="small">Misure indicative in centimetri. Su ogni capo trovi anche il consiglio di Eleonora: veste regolare, abbondante o aderente.</p></section>
+    <section class="info-sec" id="gift-card"><h2>Gift card</h2>
+      <div class="gift"><div class="gift-card"><span style="font-family:var(--f-caps);letter-spacing:.2em;font-size:13px">KIOS · GIFT CARD</span><div><div class="val">da 25 €</div><span style="font-size:13px;color:rgba(250,246,240,.7)">Valida in negozio e online</span></div></div>
+      <p>Un regalo che sceglie chi lo riceve: per KIOS e per KIOS Kids. Arriva via email o la ritiri in negozio.</p></div></section>
+    <section class="info-sec" id="condizioni"><h2>Condizioni di vendita</h2><p class="placeholder">Testo completo delle condizioni di vendita: da preparare prima dell'apertura.</p></section>
+    <section class="info-sec" id="privacy"><h2>Privacy e cookie</h2><p class="placeholder">Informativa privacy e cookie: da preparare prima dell'apertura.</p></section>
+    <section class="info-sec" id="recesso"><h2>Recedi dal contratto</h2>
+      <p>Hai cambiato idea? Puoi recedere entro 14 giorni dal ricevimento, senza spiegare il motivo. Scrivi il numero d'ordine e l'email.</p>
+      <form onsubmit="event.preventDefault(); KIOS.toast('Richiesta di prova: nel sito vero arriva la conferma via email')">
+        <label class="field"><span>Numero d'ordine</span><input type="text" autocomplete="off" placeholder="KS-1234"></label>
+        <label class="field"><span>Email</span><input type="email" autocomplete="off"></label>
+        <button class="btn btn-ink" type="submit">Recedi dal contratto</button></form></section>
+  </div>
+  <div class="section tight"></div>
+</main>
+<script src="assets/data.js"></script>
+<script src="assets/kios.js"></script>
+<script>KIOS.chrome({});</script>
+</body>
+</html>
