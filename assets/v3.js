@@ -104,8 +104,11 @@
 
     /* ---------- state ---------- */
     let W = 0, H = 0, base = 0, cardS = 0, rb = 0, nb = 0, side = false, dirty = true, p = 0, target = 0, last = 0, shown = -1;
-    let auto = !calm, lastAct = 0, inView = true, hovering = false;
-    const stopAuto = () => { auto = false; };
+    // the line walks by itself every AUTO_EVERY ms, the mouse over it does not stop it; a drag, swipe, wheel,
+    // key, arrow or tap pauses it for AUTO_RESUME ms, an open size picker holds it until it closes
+    const AUTO_EVERY = 4000, AUTO_RESUME = 7000;
+    let lastAct = 0, idleUntil = 0, inView = true;
+    const pause = () => { idleUntil = performance.now() + AUTO_RESUME; };
     const look = () => wrap(Math.round(target), N);
 
     function setTop() { rw.style.setProperty("--rw-top", Math.round(rw.getBoundingClientRect().top + scrollY) + "px"); }
@@ -156,8 +159,7 @@
         cx += (mx - cx) * 0.32; cy += (my - cy) * 0.32;
         ring.style.transform = `translate3d(${cx.toFixed(1)}px,${cy.toFixed(1)}px,0)`;
       }
-      // the line walks by itself until the first touch, drag, wheel or key
-      if (auto && lastAct && inView && !document.hidden && !down && !hovering && !rail.querySelector(".pick") && now - lastAct > 5200) {
+      if (!calm && lastAct && inView && !document.hidden && !down && !rdown && now > idleUntil && now - lastAct > AUTO_EVERY && !rail.querySelector(".pick")) {
         target = Math.round(target) + 1; lastAct = now;
       }
       requestAnimationFrame(frame);
@@ -166,8 +168,8 @@
     /* ---------- stage: drag, click, wheel, keys ---------- */
     let mx = 0, my = 0, cx = 0, cy = 0, down = false, sx = 0, st = 0, moved = 0, wheelT = 0;
     const pull = () => Math.max(150, W * 0.2);
-    stage.addEventListener("pointerenter", (e) => { if (e.pointerType === "mouse") { ring.classList.add("show"); hovering = true; } });
-    stage.addEventListener("pointerleave", () => { ring.classList.remove("show"); hovering = false; });
+    stage.addEventListener("pointerenter", (e) => { if (e.pointerType === "mouse") ring.classList.add("show"); });
+    stage.addEventListener("pointerleave", () => ring.classList.remove("show"));
     stage.addEventListener("pointermove", (e) => {
       const r = stage.getBoundingClientRect(); mx = e.clientX - r.left; my = e.clientY - r.top;
       if (!down) return;
@@ -175,7 +177,7 @@
     });
     stage.addEventListener("pointerdown", (e) => {
       if (e.button > 0 || e.target.closest("a,button")) return;
-      down = true; sx = e.clientX; st = target; moved = 0; stopAuto();
+      down = true; sx = e.clientX; st = target; moved = 0; pause();
       try { stage.setPointerCapture(e.pointerId); } catch (err) { /* pointer already gone */ }
       ring.classList.add("drag");
     });
@@ -191,11 +193,11 @@
     // horizontal swipes on a trackpad walk the line; the vertical wheel keeps scrolling the page
     stage.addEventListener("wheel", (e) => {
       if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
-      e.preventDefault(); stopAuto();
+      e.preventDefault(); pause();
       target -= clamp(e.deltaX, -120, 120) / 420;
       clearTimeout(wheelT); wheelT = setTimeout(() => (target = Math.round(target)), 150);
     }, { passive: false });
-    const step = (n) => { stopAuto(); target = Math.round(target) + n; };
+    const step = (n) => { pause(); target = Math.round(target) + n; };
     stage.addEventListener("keydown", (e) => {
       if (["ArrowRight", "ArrowDown"].includes(e.key)) { e.preventDefault(); step(1); }
       if (["ArrowLeft", "ArrowUp"].includes(e.key)) { e.preventDefault(); step(-1); }
@@ -221,7 +223,7 @@
       const d = side ? e.clientX - rsx : e.clientY - rsy, o = side ? e.clientY - rsy : e.clientX - rsx;
       if (!rdrag) {
         if (Math.abs(d) < 8 || Math.abs(d) < Math.abs(o)) return;
-        rdrag = true; stopAuto();
+        rdrag = true; pause();
         try { rail.setPointerCapture(e.pointerId); } catch (err) { /* pointer already gone */ }
       }
       target = rst - d / (2 * cardS);
@@ -234,7 +236,7 @@
 
     const closePicks = (keep) => cards.forEach((c) => c !== keep && c.classList.remove("pick"));
     function openPick(card) {
-      stopAuto(); closePicks(card); card.classList.add("pick");
+      pause(); closePicks(card); card.classList.add("pick");
       const first = card.querySelector(".rw-chips button:not(.off)");
       if (first) setTimeout(() => first.focus({ preventScroll: true }), 120);
     }
@@ -250,6 +252,7 @@
     }
     rail.addEventListener("click", (e) => {
       if (railDragged) { e.preventDefault(); e.stopPropagation(); railDragged = false; return; }
+      pause();
       const card = e.target.closest(".rw-card"); if (!card) return;
       const pc = pieces[+card.dataset.k];
       const fav = e.target.closest(".rw-fav");
@@ -259,7 +262,7 @@
       if (chip) { if (!chip.classList.contains("off")) choose(pc, chip.dataset.s, card); return; }
       if (e.target.closest(".rw-add") || e.target.closest("button.rw-shot")) { card.classList.contains("pick") ? card.classList.remove("pick") : openPick(card); }
     }, true);
-    document.addEventListener("keydown", (e) => { if (e.key === "Escape") closePicks(); });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape" && rail.querySelector(".pick")) { closePicks(); pause(); } });
     $("rw-shop").addEventListener("click", () => { target = Math.round(target); openPick(cards[2 * look()]); });
 
     /* ---------- start ---------- */
