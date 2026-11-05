@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="it">
+<!-- Variante 3 del primo schermo: «la sfilata» (sei look in profondità). Il resto della pagina è uguale a index.html. -->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>KIOS Sutri · Abbigliamento donna dalla 38 alla 52 e KIOS Kids</title>
+<meta name="description" content="Prototipo del negozio online KIOS di Sutri: abbigliamento e accessori donna dalla 38 alla 52, KIOS Kids da 0 a 14 anni, lista nascita online, ritiro gratis in negozio.">
+<meta name="theme-color" content="#121110">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/kios.css">
+<link rel="stylesheet" href="assets/v3.css">
+<link rel="preload" as="image" href="img/v3-look-1.webp" type="image/webp" fetchpriority="high">
+<link rel="preload" as="image" href="img/v3-look-2.webp" type="image/webp">
+</head>
+<body>
+<main>
+  <section class="rw" id="runway" aria-label="La sfilata di KIOS: sei look e i loro capi">
+    <div class="rw-stage" id="rw-stage" tabindex="0" aria-label="Sei look in fila. Trascina, usa le frecce o tocca un look per portarlo avanti.">
+      <div class="rw-line" id="rw-line" aria-hidden="true"></div>
+      <div class="rw-intro">
+        <p class="rw-eyebrow"><span>KIOS · Sutri<span class="rw-season"> · Autunno Inverno</span></span></p>
+        <h1>La nostra sfilata, <em>dalla 38 alla 52</em></h1>
+        <p class="rw-lead">Sei look abbinati da noi. Trascinali e sfilano uno dopo l'altro: accanto trovi i capi, con il prezzo.</p>
+      </div>
+      <div class="rw-tag">
+        <div class="rw-row">
+          <div class="rw-look" aria-hidden="true"><span>Look</span><span class="rw-win"><span class="rw-roll" id="rw-roll"></span></span><span class="rw-of">/ 06</span></div>
+          <div class="rw-nav"><button type="button" id="rw-prev" aria-label="Look precedente"><i data-i="arrow"></i></button><button type="button" id="rw-next" aria-label="Look successivo"><i data-i="arrow"></i></button></div>
+        </div>
+        <div class="rw-win rw-names" aria-hidden="true"><span class="rw-roll" id="rw-names"></span></div>
+        <button class="rw-shop" type="button" id="rw-shop">Acquista il look</button>
+        <p class="sr" id="rw-status" aria-live="polite"></p>
+      </div>
+      <div class="rw-ring" id="rw-ring" aria-hidden="true"></div>
+    </div>
+    <aside class="rw-rail" id="rw-rail" aria-label="I capi del look"></aside>
+    <div class="rw-wait" id="rw-wait" aria-hidden="true"></div>
+  </section>
+
+  <div class="trust">
+    <div><i data-i="truck"></i><span><b>Spedizione gratuita</b>da 79 €</span></div>
+    <div><i data-i="store"></i><span><b>Ritiro gratis</b>in negozio a Sutri</span></div>
+    <div><i data-i="card"></i><span><b>Paga in 3 rate</b>senza interessi</span></div>
+    <div><i data-i="ret"></i><span><b>Reso in 14 giorni</b>cambio in negozio</span></div>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head rv"><div><p class="eyebrow">Appena arrivati</p><h2>Novità <em class="g">Donna</em></h2></div><a class="link" href="donna.html?cat=novita">Tutto <i data-i="arrow"></i></a></div>
+      <div class="rail" id="novita"></div>
+    </div>
+  </section>
+
+  <section class="section dark size-block">
+    <div class="wrap">
+      <p class="eyebrow">La tua taglia</p>
+      <h2>Ogni capo, <em class="g">nella tua taglia</em></h2>
+      <p class="lead">Tocca la tua taglia: vedi solo quello che c'è davvero per te, dalla 38 alla 52.</p>
+      <div class="size-grid">
+        <a href="donna.html?taglia=38">38</a><a href="donna.html?taglia=40">40</a><a href="donna.html?taglia=42">42</a><a href="donna.html?taglia=44">44</a>
+        <a href="donna.html?taglia=46">46</a><a href="donna.html?taglia=48">48</a><a href="donna.html?taglia=50">50</a><a href="donna.html?taglia=52">52</a>
+      </div>
+      <div class="help"><i data-i="wa"></i><span>Non sai la taglia? <a data-wa="Ciao! Mi aiuti a scegliere la taglia?">Scrivici su WhatsApp</a>, poi ordini qui.</span></div>
+    </div>
+  </section>
+
+  <section class="section" id="look">
+    <div class="wrap look">
+      <figure class="look-media rv" style="margin:0"><img src="img/look-brown.webp" alt="Pochette metallizzata, gilet a quadri, blusa in raso e pantalone palazzo marrone" loading="lazy"><figcaption>«Brown, abbinalo così»</figcaption></figure>
+      <div class="rv">
+        <p class="eyebrow">Il look della settimana</p>
+        <h2>Tutto il look, <em class="g">in un tocco</em></h2>
+        <p class="lead">L'abbiamo abbinato in negozio. Scegli le taglie e lo metti nel carrello tutto insieme.</p>
+        <ul class="look-list" id="look-list"></ul>
+        <div class="look-total" id="look-total"></div>
+        <button class="btn btn-ink btn-block" id="look-btn"><i data-i="bag"></i>Aggiungi tutto il look</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cream">
+    <div class="wrap owner">
+      <div class="arch rv"><img src="img/hero-3.webp" alt="Un look provato allo specchio del negozio KIOS" loading="lazy"><div class="seal"><span>KIOS<br>VIALE<br>MARCONI 64</span></div></div>
+      <div class="rv">
+        <p class="eyebrow">Il consiglio del negozio, anche online</p>
+        <h2>La taglia giusta <em class="g">te la diciamo noi</em></h2>
+        <p class="lead">In negozio Eleonora ti consiglia la taglia e l'abbinamento. Sul sito trovi lo stesso consiglio su ogni capo: veste regolare, abbondante o aderente. Se hai un dubbio, ci scrivi su WhatsApp prima di ordinare.</p>
+        <blockquote class="quote">«la proprietaria è stupenda, accogliente, sa consigliarmi»<cite>Emma D., recensione Google</cite></blockquote>
+        <div class="sign">Vi aspetto in negozio — Eleonora</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section kids-zone">
+    <div class="wrap">
+      <img class="kids-logo rv" src="img/logo-kids.png" alt="KIOS Kids" loading="lazy">
+      <p class="eyebrow">KIOS Kids · Viale Marconi 62</p>
+      <h2>Da 0 a 14 anni, <em class="g">qui accanto</em></h2>
+      <p class="lead">Petit Bateau, Mayoral, Biocotton made in Italy e Bamboom in bambù organico. Per la nascita, per tutti i giorni e per le cerimonie.</p>
+      <div class="tiles">
+        <a class="tile rv" href="kids.html?cat=nascita#catalogo" style="--dot:var(--k-orange)"><img src="img/k-nascita.webp" alt="Completini per neonati appesi davanti al negozio KIOS Kids" loading="lazy" style="object-position:50% 40%"><span class="lbl"><b>Nascita<small>0–24 mesi</small></b></span></a>
+        <a class="tile rv" href="kids.html?cat=bimba#catalogo" style="--dot:var(--k-red)"><img src="img/k-bimba.webp" alt="Bimba con impermeabile a cuori Petit Bateau" loading="lazy" style="object-position:50% 30%"><span class="lbl"><b>Bimba<small>dai 2 ai 14 anni</small></b></span></a>
+        <a class="tile rv" href="kids.html?cat=bimbo#catalogo" style="--dot:var(--k-blue)"><img src="img/k-bimbo.webp" alt="Bimbo con giacca verde Petit Bateau" loading="lazy" style="object-position:50% 25%"><span class="lbl"><b>Bimbo<small>dai 2 ai 14 anni</small></b></span></a>
+        <a class="tile rv" href="kids.html?cat=cerimonia#catalogo" style="--dot:var(--k-purple)"><img src="img/k-cerimonia.webp" alt="Abito bianco con colletto a balze Petit Bateau" loading="lazy" style="object-position:40% 50%"><span class="lbl"><b>Cerimonia<small>e Battesimo</small></b></span></a>
+      </div>
+      <div class="nascita-banner rv">
+        <img src="img/k-set-maglia.webp" alt="Coordinato nascita in maglia Mayoral" loading="lazy">
+        <div><p class="eyebrow">Lista nascita online</p><h3>I parenti regalano <em class="g">anche da lontano</em></h3>
+          <p>La preparate con noi in negozio. Nonni e amici la aprono dal telefono, scelgono il regalo e pagano online.</p>
+          <a class="btn btn-ink" href="lista-nascita.html">Scopri la lista nascita</a></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="brands" aria-label="Alcuni marchi in negozio"><div class="brands-track">
+    <span>Kontatto</span><span>Susymix</span><span>Brend Atelier</span><span>Two Way</span><span>Petit Bateau</span><span>Mayoral</span><span>Bamboom</span><span>Biocotton</span><span>Losan</span><span>Kappa</span>
+    <span>Kontatto</span><span>Susymix</span><span>Brend Atelier</span><span>Two Way</span><span>Petit Bateau</span><span>Mayoral</span><span>Bamboom</span><span>Biocotton</span><span>Losan</span><span>Kappa</span>
+  </div></div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head rv"><div><p class="eyebrow">Dicono di noi</p><h2>Parola di chi <em class="g">ci conosce</em></h2></div></div>
+      <div class="reviews" id="reviews"></div>
+      <p class="small" style="margin-top:8px">Recensioni vere da Google e Facebook, riportate parola per parola.</p>
+    </div>
+  </section>
+
+  <section class="section cream" id="negozi">
+    <div class="wrap">
+      <div class="sec-head rv"><div><p class="eyebrow">Sutri · Viale Marconi</p><h2>I nostri <em class="g">due negozi</em></h2></div></div>
+      <div class="shops">
+        <article class="shop rv"><div class="shop-img"><img src="img/shop-donna.webp" alt="Interno del negozio KIOS" loading="lazy"><span class="shop-num">64</span></div>
+          <div class="shop-body"><h3>KIOS</h3><p>Abbigliamento e accessori donna, dalla 38 alla 52</p>
+            <div class="shop-lines"><div><i data-i="pin"></i><span>Viale Guglielmo Marconi 64, Sutri (VT)</span></div><div><i data-i="store"></i><span>Qui ritiri gratis gli ordini online</span></div></div>
+            <div class="shop-actions"><a class="btn btn-line" href="https://www.google.com/maps/dir/?api=1&amp;destination=Viale+Guglielmo+Marconi+64+Sutri" target="_blank" rel="noopener">Indicazioni</a><a class="btn btn-ink" href="negozi.html">Orari e info</a></div></div></article>
+        <article class="shop rv"><div class="shop-img"><img src="img/shop-kids.webp" alt="Interno del negozio KIOS Kids" loading="lazy" style="object-position:50% 45%"><span class="shop-num">62</span></div>
+          <div class="shop-body"><h3>KIOS Kids</h3><p>Abbigliamento da 0 a 14 anni e lista nascita</p>
+            <div class="shop-lines"><div><i data-i="pin"></i><span>Viale Guglielmo Marconi 62, Sutri (VT)</span></div><div><i data-i="gift"></i><span>Liste nascita e idee regalo</span></div></div>
+            <div class="shop-actions"><a class="btn btn-line" href="https://www.google.com/maps/dir/?api=1&amp;destination=Viale+Guglielmo+Marconi+62+Sutri" target="_blank" rel="noopener">Indicazioni</a><a class="btn btn-ink" href="negozi.html">Orari e info</a></div></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark news">
+    <div class="wrap">
+      <div class="ornament">◆</div>
+      <p class="eyebrow" style="justify-content:center;margin-top:16px">Novità nella tua taglia</p>
+      <h2>Le novità, <em class="g">prima di tutte</em></h2>
+      <p class="lead" style="margin:14px auto 0">Lasciaci l'email: ti scriviamo quando arriva qualcosa di nuovo nella tua taglia.</p>
+      <form id="news-form"><input type="email" placeholder="La tua email" aria-label="La tua email"><button class="btn btn-gold" type="submit">Iscriviti</button></form>
+      <p class="or">oppure</p>
+      <a class="btn btn-light" data-wa="Ciao! Vorrei entrare nel gruppo WhatsApp delle novità."><i data-i="wa"></i>Entra nel gruppo WhatsApp</a>
+    </div>
+  </section>
+</main>
+<script src="assets/data.js"></script>
+<script src="assets/kios.js"></script>
+<script src="assets/v3.js"></script>
+<script>KIOS.chrome(); KIOS.pages.home(); KIOSv3.init();</script>
+</body>
+</html>
