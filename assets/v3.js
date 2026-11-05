@@ -233,6 +233,10 @@
       if (rdrag) { railDragged = true; target = Math.round(target); setTimeout(() => (railDragged = false), 60); }
     };
     rail.addEventListener("pointerup", rup); rail.addEventListener("pointercancel", rup);
+    // a press that ends outside the stage or the rail (or a lost window focus) must not hold the line forever
+    const letGo = (e) => { if (down) release(e, true); rup(); };
+    addEventListener("pointerup", letGo); addEventListener("pointercancel", letGo);
+    addEventListener("blur", () => { if (down) { down = false; ring.classList.remove("drag"); target = Math.round(target); } rdown = false; });
 
     const closePicks = (keep) => cards.forEach((c) => c !== keep && c.classList.remove("pick"));
     function openPick(card) {
