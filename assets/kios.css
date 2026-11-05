@@ -456,7 +456,8 @@ table.sizes { width: 100%; border-collapse: collapse; font-size: 14px; margin: 1
 table.sizes th, table.sizes td { padding: 9px 6px; text-align: center; border-bottom: 1px solid var(--line); }
 table.sizes th { font-family: var(--f-caps); font-size: 11px; letter-spacing: .14em; color: var(--gold-ink); font-weight: 500; }
 table.sizes td:first-child { font-family: var(--f-display); font-size: 19px; font-weight: 600; }
-.toast { position: fixed; left: 50%; bottom: 22px; transform: translate(-50%, 140%); z-index: 120; background: var(--ink); color: var(--ivory); padding: 13px 18px; border-radius: 999px; font-size: 14px; box-shadow: var(--shadow); display: flex; align-items: center; gap: 10px; max-width: calc(100vw - 32px); transition: transform .35s cubic-bezier(.2,.8,.2,1); }
+/* width: max-content — with left: 50% the notice used to shrink into a narrow column on phones (05.11) */
+.toast { position: fixed; left: 50%; bottom: 22px; transform: translate(-50%, 140%); z-index: 120; background: var(--ink); color: var(--ivory); padding: 13px 18px; border-radius: 22px; font-size: 14px; box-shadow: var(--shadow); display: flex; align-items: center; gap: 10px; width: max-content; max-width: calc(100vw - 32px); transition: transform .35s cubic-bezier(.2,.8,.2,1); }
 .toast.on { transform: translate(-50%, 0); }
 .toast svg { width: 18px; height: 18px; color: var(--gold-2); flex: none; }
 .toast a { color: var(--gold-2); border-bottom: 1px solid currentColor; white-space: nowrap; }

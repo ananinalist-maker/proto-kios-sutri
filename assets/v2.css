@@ -166,8 +166,7 @@
 .v2-buy .v2-add:active { transform: scale(.97); }
 .v2-buy .v2-add svg { width: 17px; height: 17px; }
 
-/* avviso «nel carrello» di kios.js: con left 50% si stringeva in una colonna; qui prende la larghezza del testo */
-.toast { width: max-content; }
+/* avviso «nel carrello» di kios.js: sopra la scheda acquisto finché si vede la prima schermata */
 body.v2-hero-in .toast { bottom: calc(4.6vh + var(--v2buyH, 90px) + 14px); }
 
 /* ---------- cursore in vetro (solo mouse) ---------- */
